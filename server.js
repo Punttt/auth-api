@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log("Ansluten till MongoDB"))
     .catch(err => console.error("MongoDB-anslutningen misslyckades: ", err));
 
+// Kopplar auth-routes till /api
+app.use("/api", authRoutes);
 
 // Test-route
 app.get("/", (req, res) => {
