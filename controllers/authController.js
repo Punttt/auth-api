@@ -36,3 +36,7 @@ const register = async (req, res) => {
         res.status(400).json({ error: "Kunde inte skapa ett nytt konto" })
     }
 };
+
+module.exports = { register };
+
+
