@@ -37,6 +37,15 @@ const register = async (req, res) => {
     }
 };
 
+// Logga in som användare
+const login = async (req, res) => {
+    try {
+
+    } catch (error) {
+        
+    }
+};
+
 module.exports = { register };
 
 
