@@ -40,6 +40,12 @@ const register = async (req, res) => {
 // Logga in som användare
 const login = async (req, res) => {
     try {
+        const { username, password } = req.body;
+
+        // Kontrollerar att fältet finns
+        if (!username || !password) {
+            return res.status(400).json({ error: "Både användarnamn och lösenord krävs" });
+        }
 
     } catch (error) {
         console.error(error);
