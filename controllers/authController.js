@@ -53,6 +53,21 @@ const login = async (req, res) => {
             return res.status(401).json({ error: "Felaktikt användarnamn eller lösenord" });
         }
 
+        // Jämför inputlösenordet mot det hashade lösenordet.
+        const passwordMatch = await bcrypt.compare(password, user.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ error: "Felaktikt användarnamn eller lösenord" });
+        }
+
+        // Skapa JW token med anvädarens id och username
+        const token = jwt.sign(
+            { userId: user._id, username: user.usernam },
+            process.env.JWT_SECRET,
+            { expiresIn: "1h" }
+        );
+
+        
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internt serverproblem" });
