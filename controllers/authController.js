@@ -51,13 +51,13 @@ const login = async (req, res) => {
         // Hitta användaren i databasen
         const user = await User.findOne({ username });
         if(!user) {
-            return res.status(401).json({ error: "Felaktikt användarnamn eller lösenord" });
+            return res.status(401).json({ error: "Fel användarnamn eller lösenord" });
         }
 
         // Jämför inputlösenordet mot det hashade lösenordet.
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) {
-            return res.status(401).json({ error: "Felaktikt användarnamn eller lösenord" });
+            return res.status(401).json({ error: "Fel användarnamn eller lösenord" });
         }
 
         // Skapa JW token med anvädarens id och username
