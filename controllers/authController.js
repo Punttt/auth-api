@@ -47,6 +47,12 @@ const login = async (req, res) => {
             return res.status(400).json({ error: "Både användarnamn och lösenord krävs" });
         }
 
+        // Hitta användaren i databasen
+        const user = await User.findOne({ username });
+        if(!user) {
+            return res.status(401).json({ error: "Felaktikt användarnamn eller lösenord" });
+        }
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internt serverproblem" });
