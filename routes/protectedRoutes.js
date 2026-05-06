@@ -17,9 +17,11 @@ router.get("/profile", authenticate, async (req, res) => {
             message: "Här är din profil",
             user
         });
-        
+
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: "Internt serverfel" });
     }
 });
+
+module.exports = router;
