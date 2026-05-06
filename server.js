@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGODB_URL)
 
 // Kopplar auth-routes till /api
 app.use("/api", authRoutes);
+app.use("/api", protectedRoutes);
 
 // Test-route
 app.get("/", (req, res) => {
