@@ -8,6 +8,7 @@ const cors = require("cors");
 
 // Importera routes
 const authRoutes = require("./routes/authRoutes");
+const protectedRoutes = require("./routes/protectedRoutes");
 
 // Skapar expressapplikation
 const app = express();
