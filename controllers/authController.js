@@ -66,7 +66,11 @@ const login = async (req, res) => {
             { expiresIn: "1h" }
         );
 
-        
+        // Skickar tillbaka token till klienten
+        res.status(200).json({
+            message: "Inloggning lyckades",
+            token
+        });
 
     } catch (error) {
         console.error(error);
