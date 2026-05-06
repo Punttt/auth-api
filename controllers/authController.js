@@ -62,7 +62,7 @@ const login = async (req, res) => {
 
         // Skapa JW token med anvädarens id och username
         const token = jwt.sign(
-            { userId: user._id, username: user.usernam },
+            { userId: user._id, username: user.username },
             process.env.JWT_SECRET,
             { expiresIn: "1h" }
         );
