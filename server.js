@@ -6,6 +6,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+// Importera routes
+const authRoutes = require("./routes/authRoutes");
+const protectedRoutes = require("./routes/protectedRoutes");
+
 // Skapar expressapplikation
 const app = express();
 
@@ -18,6 +22,9 @@ mongoose.connect(process.env.MONGODB_URL)
     .then(() => console.log("Ansluten till MongoDB"))
     .catch(err => console.error("MongoDB-anslutningen misslyckades: ", err));
 
+// Kopplar auth-routes till /api
+app.use("/api", authRoutes);
+app.use("/api", protectedRoutes);
 
 // Test-route
 app.get("/", (req, res) => {
