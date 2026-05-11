@@ -16,7 +16,7 @@ Webbtjänst med autentisering byggd i Node.js, Express och MongoDB. Hanterar reg
 
 1. Klona repot
 ```bash
-   git clone https://github.com/DITTNAMN/auth-api.git
+   git clone https://github.com/Punttt/auth-api.git
    cd auth-api
 ```
 
@@ -84,7 +84,7 @@ Loggar in en användare och returnerar en JWT giltig i 1 timme.
 }
 ```
 
-### GET /api/profile 🔒
+### GET /api/profile
 Skyddad route som returnerar inloggad användares profil. Kräver giltig JWT.
 
 **Headers:**
